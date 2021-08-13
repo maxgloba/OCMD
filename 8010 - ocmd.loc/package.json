@@ -1,0 +1,35 @@
+{
+  "name": "ocmd_konn",
+  "version": "1.0.0",
+  "description": "App for sending Deals reports to Konnective CRM",
+  "homepage": "https://github.com/onyx1812/konn-ocmd",
+  "author": {
+    "name": "Globa Max",
+    "email": "onyx18121990@gmail.com",
+    "url": "https://www.instagram.com/maxgloba_dev/"
+  },
+  "license": "ISC",
+  "main": "./server/app.js",
+  "scripts": {
+    "start": "node server/app.js",
+    "dev": "nodemon server/app.js",
+    "stat": "pm2 start server/app.js --name kne"
+  },
+  "dependencies": {
+    "@paypal/checkout-server-sdk": "^1.0.2",
+    "body-parser": "^1.19.0",
+    "concurrently": "^6.1.0",
+    "connect-history-api-fallback": "^1.6.0",
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "facebook-nodejs-business-sdk": "^11.0.0",
+    "klaviyo-node": "^1.0.8",
+    "nodemailer": "^6.6.3",
+    "request": "^2.88.2"
+  },
+  "devDependencies": {
+    "cors": "^2.8.5",
+    "nodemon": "^2.0.2",
+    "reload": "^3.0.3"
+  }
+}

@@ -1,0 +1,34 @@
+@font-face {
+  font-family: 'Graphik';
+  src: url("./../assets/fonts/Graphik-Regular.eot");
+  src: local("Graphik Regular"), local("Graphik-Regular"), url("./../assets/fonts/Graphik-Regular.eot?#iefix") format("embedded-opentype"), url("./../assets/fonts/Graphik-Regular.woff2") format("woff2"), url("./../assets/fonts/Graphik-Regular.woff") format("woff"), url("./../assets/fonts/Graphik-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Graphik';
+  src: url("./../assets/fonts/Graphik-Medium.eot");
+  src: local("Graphik Medium"), local("Graphik-Medium"), url("./../assets/fonts/Graphik-Medium.eot?#iefix") format("embedded-opentype"), url("./../assets/fonts/Graphik-Medium.woff2") format("woff2"), url("./../assets/fonts/Graphik-Medium.woff") format("woff"), url("./../assets/fonts/Graphik-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Graphik';
+  src: url("./../assets/fonts/Graphik-Semibold.eot");
+  src: local("Graphik Semibold"), local("Graphik-Semibold"), url("./../assets/fonts/Graphik-Semibold.eot?#iefix") format("embedded-opentype"), url("./../assets/fonts/Graphik-Semibold.woff2") format("woff2"), url("./../assets/fonts/Graphik-Semibold.woff") format("woff"), url("./../assets/fonts/Graphik-Semibold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Graphik';
+  src: url("./../assets/fonts/Graphik-Bold.eot");
+  src: local("Graphik Bold"), local("Graphik-Bold"), url("./../assets/fonts/Graphik-Bold.eot?#iefix") format("embedded-opentype"), url("./../assets/fonts/Graphik-Bold.woff2") format("woff2"), url("./../assets/fonts/Graphik-Bold.woff") format("woff"), url("./../assets/fonts/Graphik-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Graphik';
+  src: url("./../assets/fonts/Graphik-Black.eot");
+  src: local("Graphik Black"), local("Graphik-Black"), url("./../assets/fonts/Graphik-Black.eot?#iefix") format("embedded-opentype"), url("./../assets/fonts/Graphik-Black.woff2") format("woff2"), url("./../assets/fonts/Graphik-Black.woff") format("woff"), url("./../assets/fonts/Graphik-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal; }
