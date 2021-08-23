@@ -78,7 +78,6 @@ export default {
   mounted(){
     this.$store.state.mode = 'live';
     localStorage.mode = 'live';
-    console.log(this.$route.query.affId);
   }
 }
 </script>

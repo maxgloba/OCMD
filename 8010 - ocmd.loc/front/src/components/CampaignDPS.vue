@@ -51,7 +51,7 @@
             </div>
           </div>
           <div class="col-md-8">
-            <h1 class="products-title">Rejuvenation Complex Cream</h1>
+            <h1 class="products-title">Deep Perfecting Serum</h1>
             <div class="products-sub">
               Boost your skin-saving regimen with Deep Perfecting Face & Neck Serum (
               <div class="stars">
