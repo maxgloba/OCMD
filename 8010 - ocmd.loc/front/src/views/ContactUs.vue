@@ -13,11 +13,11 @@
       <form class="contact row" @submit="submitContact">
         <div class="field col-sm-6">
           <label for="name">Name</label>
-          <input type="text" v-model="name" id="name" required>
+          <input type="text" v-model="name" minlength="2"  id="name" required>
         </div>
         <div class="field col-sm-6">
           <label for="email">Email*</label>
-          <input type="email" v-model="email" id="email" required>
+          <input type="email" v-model="email" id="email" @change="emailAddressChange" required>
         </div>
         <div class="field col-12">
           <label for="phone">Phone</label>
@@ -28,7 +28,7 @@
           <textarea v-model="message" id="message"></textarea>
         </div>
         <div class="field col-12">
-          <input type="submit" value="Send">
+          <input type="submit" value="Send" :disabled="(validationForm) ? false:true">
         </div>
       </form>
     </div>
@@ -43,10 +43,35 @@ export default {
       name: null,
       email: null,
       phone: null,
-      message: null
+      message: null,
+      validationForm: false
     }
   },
   methods: {
+    validation(){
+      let contains = () => {
+        let result = true;
+        document.querySelectorAll('input').forEach(input => {
+          if( input.classList.contains('no-valid') ) result = false;
+      });
+      return result
+    }
+      if(this.name !== null &&  this.email !== null  && contains()){
+        this.validationForm = true;
+      } else {
+        this.validationForm = false;
+      }
+    },
+    emailAddressChange(e){
+      const emailReg = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      if( !emailReg.test(e.target.value) ){
+        e.target.classList.add('no-valid');
+        alert('Email is wrong!');
+      } else {
+        e.target.classList.remove('no-valid');
+      }
+      this.validation();
+    },
     submitContact(e){
       e.preventDefault()
       const data = {
@@ -97,6 +122,13 @@ export default {
       &:hover{
         text-decoration: underline;
       }
+    }
+  }
+  input[type="submit"]{
+    &:disabled{
+      background: gray;
+      cursor: default;
+      pointer-events: none;
     }
   }
 }

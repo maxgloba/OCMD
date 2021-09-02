@@ -34,6 +34,7 @@ export default {
     openPopup(id){
       this.popup = true;
       this.popupHTML = this[id];
+      document.body.parentNode.style.overflowY = 'hidden';
     }
   }
 }

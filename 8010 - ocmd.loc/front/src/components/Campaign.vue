@@ -1391,6 +1391,7 @@ export default {
 }
 
 .promise .row {
+  justify-content: space-between;
   text-align: center;
   font-size: 19px;
   line-height: 23px;

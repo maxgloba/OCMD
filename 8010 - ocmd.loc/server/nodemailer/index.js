@@ -2,12 +2,12 @@ const nodemailer = require('nodemailer');
 
 async function contact(name, email, phone, message) {
   let transporter = nodemailer.createTransport({
-    host: "smtp.mailgun.org",
+    host: "smtp.sendgrid.net",
     port: 587,
     secure: false,
     auth: {
-      user: 'mail@support.ocmd.co',
-      pass: '69dd5b16b76646fddefef7eed1f55e5d-1f1bd6a9-210244f6',
+      user: 'apikey',
+      pass: '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',
     },
   });
 

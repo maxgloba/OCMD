@@ -20,6 +20,7 @@ export default {
   methods: {
     close(){
       this.$parent._data.popup = false;
+      document.body.parentNode.style.overflowY = 'auto';
     }
   },
   created(){
