@@ -1,5 +1,10 @@
 <template>
   <nav class="nav">
+    <button @click="toggleNav">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
     <ul>
       <li><router-link to="/">HOME</router-link></li>
       <li class="submenu">
@@ -18,22 +23,55 @@
 <script>
 export default {
   name: 'Navigation',
+  methods: {
+    toggleNav(e) {
+      e.preventDefault()
+      e.target.parentNode.classList.toggle('nav-active')
+    }
+  }
 }
 </script>
 <style lang="scss" scoped>
 .nav{
-  // margin-left: auto;
   width: 100%;
   display: block;
+  &-active{
+    ul{
+      display: flex;
+    }
+  }
 }
 ul{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  display: none;
+  @media(min-width:768px){
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  @media(max-width:767px){
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    background: #fe6f61;
+    opacity: .9;
+    z-index: 998;
+    transition: opacity 1s linear, visibility 1s linear;
+    li{
+      flex: 1 100%;
+      text-align: center;
+    }
+  }
   li{
     position: relative;
     &:not(:first-child){
-      margin-left: 45px;
+      margin-left: 15px;
+      @media(max-width:767px){
+        margin-left: 0;
+      }
     }
   }
   ul{
@@ -62,41 +100,45 @@ ul{
       }
     }
   }
-}
-a, span{
-  display: block;
-  text-transform: uppercase;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 20px;
-  color: #3a3c48;
-  position: relative;
-  padding: 10px 0;
-  &:after{
-    content:"";
+  a, span{
     display: block;
-    height: 1px;
-    background: #000;
-    position: absolute;
-    left: 0;
-    bottom: 10px;
-    width: 0;
-    transition: width .5s ease;
-  }
-  &.router-link-exact-active{
-    font-weight: 700;
-  }
-  &:hover{
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    color: #3a3c48;
+    position: relative;
+    padding: 10px 0;
     &:after{
-      width: 100%;
+      content:"";
+      display: block;
+      height: 1px;
+      background: #000;
+      position: absolute;
+      left: 0;
+      bottom: 10px;
+      width: 0;
+      transition: width .5s ease;
+    }
+    &.router-link-exact-active{
+      font-weight: 700;
+    }
+    &:hover{
+      &:after{
+        width: 100%;
+      }
     }
   }
 }
+
 .submenu{
   span{
     padding-right: 20px;
     position: relative;
+    @media(max-width:767px){
+      padding-right: 0;
+    }
     &:after {
       display: inline-block;
       content: "▼";
@@ -111,6 +153,9 @@ a, span{
       width: auto;
       background: none;
       transform: translate(0, -50%);
+      @media(max-width:767px){
+        right: 40%;
+      }
     }
   }
   &:hover{
@@ -119,6 +164,33 @@ a, span{
       z-index: 2;
       visibility: visible;
     }
+  }
+}
+button{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: 1px solid #fe6f61;
+  width: 60px;
+  height: 50px;
+  padding: 10px 10px;
+  border-radius: 4px;
+  position: absolute;
+  right: 10%;
+  top: 50%;
+  transform: translate(0, -50%);
+  @media(min-width:768px){
+    display: none;
+  }
+  span {
+    display: block;
+    background: #fe6f61;
+    width: 100%;
+    height: 2px;
+    flex: 1 100%; 
+    pointer-events: none;
   }
 }
 </style>

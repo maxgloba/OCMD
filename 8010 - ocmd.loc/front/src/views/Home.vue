@@ -271,7 +271,7 @@ p{
 
 .text{
   &-right{
-    text-align: right;
+    text-align: center;
   }
   &-left{
     text-align: left;
@@ -569,12 +569,19 @@ p{
   @media(min-width:768px){
     padding: 30px;
   }
+  @media(max-width:575px){
+      max-width: calc(100% - 50px);
+    } 
   &-wrap{
     display: flex;
     width: 760px;
     max-width: 100%;
     margin-left: auto;
     margin-right: auto;
+    @media(max-width:575px){
+      flex-direction: column;
+      align-items: center;
+    } 
   }
   &-img{
     display: block;
@@ -595,15 +602,18 @@ p{
     }
   }
   &-desc{
-    font-weight: 400;
     font-size: 14px;
-    margin-bottom: 15px;
+    @media(min-width:768px){
+      font-weight: 400;
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
   }
   &-rating{}
   &-price{
     font-size: 24px;
     margin-bottom: 15px;
-    @media(min-width:992px){
+    @media(min-width:768px){
       font-size: 28px;
     }
     @media(min-width:1200px){

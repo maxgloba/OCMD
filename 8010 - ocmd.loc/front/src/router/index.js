@@ -88,6 +88,9 @@ const router = new VueRouter({
 
 router.afterEach((to, from) => {
   document.getElementById('app').classList = to.name;
+  if( document.querySelector('.nav-active') ){
+    document.querySelector('.nav').classList.remove('nav-active')
+  }
 })
 
 export default router;
