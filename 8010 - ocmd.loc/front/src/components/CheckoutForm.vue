@@ -12,11 +12,11 @@
       </div>
       <div class="field col-md-6">
         <label for="firstName">First name</label>
-        <input type="text" v-model="firstName" id="firstName" placeholder="ex.John" maxlength="30" required />
+        <input type="text" v-model="firstName" id="firstName" @change="firstNameChange" placeholder="ex.John" minlength="2" maxlength="30" required />
       </div>
       <div class="field col-md-6">
         <label for="lastName">Last name</label>
-        <input type="text" v-model="lastName" id="lastName" placeholder="ex.Doe" maxlength="30" required />
+        <input type="text" v-model="lastName" id="lastName" @change="lastNameChange" placeholder="ex.Doe" minlength="2" maxlength="30" required />
       </div>
       <div class="field col-md-6">
         <label for="emailAddress">Email</label>
@@ -24,28 +24,28 @@
       </div>
       <div class="field col-md-6">
         <label for="phoneNumber">Phone number</label>
-        <input type="text" v-model="phoneNumber" id="phoneNumber" placeholder="ex.+14845101768" maxlength="20" required />
+        <input type="tel" v-model="phoneNumber" @change="phoneNumberChange" id="phoneNumber" placeholder="ex.+14845101768" maxlength="20" required />
       </div>
       <div class="field col-md-6">
         <label for="country">Country</label>
-        <input type="text" v-model="country" id="country" placeholder="United States" maxlength="2" readonly />
+        <input type="text" v-model="country" @change="countryChange" id="country" placeholder="United States" maxlength="2" readonly />
       </div>
       <div class="field col-md-6">
         <label for="city">City</label>
-        <input type="text" v-model="city" id="city" placeholder="ex.Los Angeles" maxlength="30" required />
+        <input type="text" v-model="city" @change="cityChange" id="city" placeholder="ex.Los Angeles" maxlength="30" required />
       </div>
       <div class="field field-sel col-md-6">
         <label for="state">State</label>
         <span v-if="!state">Select state</span>
-        <select v-model="state" id="state" required><option value="" default selected disabled >Select state</option><option value="AL">Alabama</option><option value="AK">Alaska</option><option value="AZ">Arizona</option><option value="AR">Arkansas</option><option value="CA">California</option><option value="CO">Colorado</option><option value="CT">Connecticut</option><option value="DE">Delaware</option><option value="DC">District Of Columbia</option><option value="FL">Florida</option><option value="GA">Georgia</option><option value="HI">Hawaii</option><option value="ID">Idaho</option><option value="IL">Illinois</option><option value="IN">Indiana</option><option value="IA">Iowa</option><option value="KS">Kansas</option><option value="KY">Kentucky</option><option value="LA">Louisiana</option><option value="ME">Maine</option><option value="MD">Maryland</option><option value="MA">Massachusetts</option><option value="MI">Michigan</option><option value="MN">Minnesota</option><option value="MS">Mississippi</option><option value="MO">Missouri</option><option value="MT">Montana</option><option value="NE">Nebraska</option><option value="NV">Nevada</option><option value="NH">New Hampshire</option><option value="NJ">New Jersey</option><option value="NM">New Mexico</option><option value="NY">New York</option><option value="NC">North Carolina</option><option value="ND">North Dakota</option><option value="OH">Ohio</option><option value="OK">Oklahoma</option><option value="OR">Oregon</option><option value="PA">Pennsylvania</option><option value="RI">Rhode Island</option><option value="SC">South Carolina</option><option value="SD">South Dakota</option><option value="TN">Tennessee</option><option value="TX">Texas</option><option value="UT">Utah</option><option value="VT">Vermont</option><option value="VA">Virginia</option><option value="WA">Washington</option><option value="WV">West Virginia</option><option value="WI">Wisconsin</option><option value="WY">Wyoming</option><option value="AA">Armed Forces (AA)</option><option value="AE">Armed Forces (AE)</option><option value="AP">Armed Forces (AP)</option></select>
+        <select v-model="state" @change="stateChange" id="state" required><option value="" default selected disabled >Select state</option><option value="AL">Alabama</option><option value="AK">Alaska</option><option value="AZ">Arizona</option><option value="AR">Arkansas</option><option value="CA">California</option><option value="CO">Colorado</option><option value="CT">Connecticut</option><option value="DE">Delaware</option><option value="DC">District Of Columbia</option><option value="FL">Florida</option><option value="GA">Georgia</option><option value="HI">Hawaii</option><option value="ID">Idaho</option><option value="IL">Illinois</option><option value="IN">Indiana</option><option value="IA">Iowa</option><option value="KS">Kansas</option><option value="KY">Kentucky</option><option value="LA">Louisiana</option><option value="ME">Maine</option><option value="MD">Maryland</option><option value="MA">Massachusetts</option><option value="MI">Michigan</option><option value="MN">Minnesota</option><option value="MS">Mississippi</option><option value="MO">Missouri</option><option value="MT">Montana</option><option value="NE">Nebraska</option><option value="NV">Nevada</option><option value="NH">New Hampshire</option><option value="NJ">New Jersey</option><option value="NM">New Mexico</option><option value="NY">New York</option><option value="NC">North Carolina</option><option value="ND">North Dakota</option><option value="OH">Ohio</option><option value="OK">Oklahoma</option><option value="OR">Oregon</option><option value="PA">Pennsylvania</option><option value="RI">Rhode Island</option><option value="SC">South Carolina</option><option value="SD">South Dakota</option><option value="TN">Tennessee</option><option value="TX">Texas</option><option value="UT">Utah</option><option value="VT">Vermont</option><option value="VA">Virginia</option><option value="WA">Washington</option><option value="WV">West Virginia</option><option value="WI">Wisconsin</option><option value="WY">Wyoming</option><option value="AA">Armed Forces (AA)</option><option value="AE">Armed Forces (AE)</option><option value="AP">Armed Forces (AP)</option></select>
       </div>
       <div class="field col-md-6">
         <label for="postalCode">Postal code</label>
-        <input type="text" v-model="postalCode" id="postalCode" placeholder="ex.90210" maxlength="20" required />
+        <input type="text" v-model="postalCode" @change="postalCodeChange" id="postalCode" placeholder="ex.90210" maxlength="20" required />
       </div>
       <div class="field col-12">
         <label for="address1">Address</label>
-        <input type="text" v-model="address1" id="address1" placeholder="ex.516 Walden Dr, Beverly Hills" maxlength="50" required />
+        <input type="text" v-model="address1" @change="address1Change" id="address1" placeholder="ex.516 Walden Dr, Beverly Hills" maxlength="50" required />
       </div>
       <div class="field col-12">
         <button type="submit" :disabled="(validForm) ? false:true">Click to Continue</button>
@@ -211,6 +211,30 @@ export default {
         e.target.classList.remove('no-valid');
       }
       this.validation();
+    },
+    firstNameChange(e){
+      this.validation()
+    },
+    lastNameChange(e){
+      this.validation()
+    },
+    phoneNumberChange(e){
+      this.validation()
+    },
+    countryChange(e){
+      this.validation()
+    },
+    cityChange(e){
+      this.validation()
+    },
+    stateChange(e){
+      this.validation()
+    },
+    postalCodeChange(e){
+      this.validation()
+    },
+    address1Change(e){
+      this.validation()
     },
     redirectToUpsell(){
       let upsellType = [1, 4, 27, 30, 39, 42, 51, 54, 95, 108, 111];
