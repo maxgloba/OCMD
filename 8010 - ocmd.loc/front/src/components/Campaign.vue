@@ -9,7 +9,7 @@
     <section class="products">
       <div class="container">
         <div class="row">
-          <div class="col-md-4">
+          <div class="col-lg-4">
             <div class="products-sidebar">
               <div class="gallery">
                 <img class="gallery-img" src="@/assets/img/campaign/prd-slide-1-cream-new.png" width="100%">
@@ -50,7 +50,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-8">
+          <div class="col-lg-8">
             <h1 class="products-title">Rejuvenation Complex Cream</h1>
             <div class="products-sub">
               Formulated by Top MD’s for Neck &amp; Face (
@@ -1160,7 +1160,7 @@ export default {
 
 @media (min-width: 992px) {
   .list-types li {
-    font-size: 24px;
+    font-size: 18px;
     line-height: 28px;
   }
 }
