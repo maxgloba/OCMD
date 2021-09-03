@@ -58,7 +58,6 @@ ul{
   display: none;
   @media(min-width:768px){
     display: flex;
-    align-items: center;
     justify-content: space-between;
   }
   @media(max-width:767px){
@@ -88,7 +87,7 @@ ul{
   li{
     position: relative;
     &:not(:first-child){
-      margin-left: 15px;
+      margin-left: 8px;
       @media(max-width:767px){
         margin-left: 0;
       }
