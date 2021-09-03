@@ -78,7 +78,7 @@
             <div class="field field-cc col-md-12">
               <h5>Card Number</h5>
               <!-- <label for="cardNumber">Card Number</label> -->
-              <input type="text" v-model="cardNumber" id="cardNumber" placeholder="0000 0000 0000 0000" minlength="16" maxlength="16" required />
+              <input type="text" v-model="cardNumber" @change="cardNumberChange" @input="cardNumberInput" id="cardNumber" placeholder="0000 0000 0000 0000" minlength="19" maxlength="19" required />
             </div>
             <div class="field field-cc field-exp col-12">
               <h5>Expiration date</h5>
@@ -202,6 +202,23 @@ export default {
         this.validForm = false;
       }
     },
+    cardNumberInput(e){
+      let arr = e.target.value.replace(/[^\dA-Z]/g, '').replace(/[\s]/g, '').split('');
+      if(arr.length > 4) arr.splice(4, 0, ' ');
+      if(arr.length >= 9) arr.splice(9, 0, ' ');
+      if(arr.length > 14) arr.splice(14, 0, ' ');
+      this.cardNumber = arr.toString().replace(/[,]/g, '');
+    },
+    cardNumberChange(e){
+      let arr = e.target.value.replace(/[^\dA-Z]/g, '').replace(/[\s]/g, '').split('');
+      if(arr.length < 16){
+        e.target.classList.add('no-valid');
+      } else {
+        e.target.classList.remove('no-valid');
+        // this.cardNumber = e.target.value.replace(/[^\dA-Z]/g, '').replace(/[\s]/g, '').split('').toString().replace(/[,]/g, '');
+      }
+      this.validation();
+    },
     emailAddressChange(e){
       const emailReg = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       if( !emailReg.test(e.target.value) ){
@@ -248,6 +265,8 @@ export default {
 
       localStorage.emailAddress = this.emailAddress;
 
+      let cardNumber = this.cardNumber.replace(/\s/g, '');
+
       let data = {
         campaignId: this.$store.state.campaignId,
         firstName: this.firstName,
@@ -258,7 +277,7 @@ export default {
         city: this.city,
         postalCode: this.postalCode,
         state: this.state,
-        cardNumber: this.cardNumber,
+        cardNumber: cardNumber,
         cardMonth: this.cardMonth,
         cardYear: this.cardYear,
         cardSecurityCode: this.cardSecurityCode,
