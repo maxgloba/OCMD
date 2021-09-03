@@ -1,5 +1,6 @@
 <template>
   <section class="popup" :class="{ 'popup-active': anim }">
+    <span @click="close" class="popup-back"></span>
     <div class="popup-wrap">
       <button class="popup-close" @click="close">+</button>
       <div class="popup-content" v-html="html"></div>
@@ -78,6 +79,17 @@ export default {
     text-align: center;
     &:hover{
       opacity: .8;
+    }
+  }
+  &-back{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    cursor: pointer;
+    &:hover{
+      background: rgba(255,255,255, .05);
     }
   }
 }
