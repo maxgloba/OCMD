@@ -30,9 +30,12 @@ export default {
   //   display: flex;
   // }
   .logo{
-    width: 160px;
+    width: 120px;
     max-width: 100%;
     display: block;
+    @media(min-width:768px){
+      width: 160px;
+    }
     img{
       display: block;
       width: 100%;
