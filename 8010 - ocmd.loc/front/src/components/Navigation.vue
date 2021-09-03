@@ -38,6 +38,30 @@ export default {
   &-active{
     ul{
       display: flex;
+      ul{
+        left: 0%;
+        top: 30%;
+      }
+    }
+    button{
+      top: 3%;
+      right: 3%;
+      z-index: 999;
+      position: fixed;
+      border: 1px solid #f13221;
+      border-radius: 4px;
+      width: 40px;
+      height: 35px;
+      &:after{
+          content:"+";
+          display: block;
+          position: absolute;
+          color:#f13221;
+          transform: scale(3.5) rotate(45deg);
+        }
+      span{
+        display: none;
+      }
     }
   }
 }
@@ -77,7 +101,7 @@ ul{
   ul{
     background: #fff;
     position: absolute;
-    left: 0; top: 100%;
+    left: -60%; top: 100%;
     display: block;
     text-align: left;
     margin: 0;
@@ -126,7 +150,7 @@ ul{
     }
     &:hover{
       &:after{
-        width: 100%;
+        display: none;
       }
     }
   }
