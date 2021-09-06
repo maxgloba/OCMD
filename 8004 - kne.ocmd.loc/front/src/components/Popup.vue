@@ -1,5 +1,6 @@
 <template>
   <section class="popup" :class="{ 'popup-active': anim }">
+    <span @click="close" class="popup-back"></span>
     <div class="popup-wrap">
       <button class="popup-close" @click="close">+</button>
       <div class="popup-content" v-html="html"></div>
@@ -20,6 +21,7 @@ export default {
   methods: {
     close(){
       this.$parent._data.popup = false;
+      document.body.parentNode.style.overflowY = 'auto';
     }
   },
   created(){
@@ -39,10 +41,11 @@ export default {
   width: 100%; height: 100vh;
   z-index: 999;
   background: rgba(0,0,0, .8);
-  padding: 30px 15px;
+  padding: 30px 10px;
   opacity: 0;
   transition: opacity .5s ease;
   overflow: hidden;
+  word-wrap: break-word;
   &-active{
     opacity: 1;
     overflow-y: auto;
@@ -53,9 +56,10 @@ export default {
   }
   &-wrap{
     background: #FFF;
+    min-width: 300px;
     max-width: 1000px;
     margin: 0 auto;
-    padding: 30px;
+    padding: 30px 15px;
     position: relative;
     opacity: 0;
     transform: translate(0, 200px);
@@ -77,6 +81,17 @@ export default {
     text-align: center;
     &:hover{
       opacity: .8;
+    }
+  }
+  &-back{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    cursor: pointer;
+    &:hover{
+      background: rgba(255,255,255, .05);
     }
   }
 }

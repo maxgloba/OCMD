@@ -9,7 +9,7 @@
     <section class="products">
       <div class="container">
         <div class="row">
-          <div class="col-md-4">
+          <div class="col-lg-4">
             <div class="products-sidebar">
               <div class="gallery">
                 <img class="gallery-img" src="@/assets/img/campaign/prd-slide-1-cream-new.png" width="100%">
@@ -50,7 +50,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-8">
+          <div class="col-lg-8">
             <h1 class="products-title">Rejuvenation Complex Cream</h1>
             <div class="products-sub">
               Formulated by Top MD’s for Neck &amp; Face (
@@ -81,12 +81,12 @@
               </li>
             </ul>
             <ul class="row list-values">
-              <li class="col-sm-7">Instantly tightens loose and sagging skin.</li>
-              <li class="col-sm-5">Loose skin</li>
-              <li class="col-sm-7">Adds volume &amp; thickness to thin, papery skin.</li>
-              <li class="col-sm-5">Sagging skin</li>
-              <li class="col-sm-7">Restore your youthful look in weeks.</li>
-              <li class="col-sm-5">Fine lines, wrinkles and “crow's feet”</li>
+              <li class="col-sm-7"> <span>Instantly tightens loose and sagging skin.</span></li>
+              <li class="col-sm-5"> <span>Loose skin</span></li>
+              <li class="col-sm-7"> <span>Adds volume &amp; thickness to thin, papery skin.</span></li>
+              <li class="col-sm-5"> <span>Sagging  skin</span></li>
+              <li class="col-sm-7"> <span>Restore your youthful look in weeks.</span></li>
+              <li class="col-sm-5"> <span>Fine lines, wrinkles and “crow's feet”</span></li>
             </ul>
             <div class="products-tabs">
               <ul class="products-tabs__nav">
@@ -499,7 +499,7 @@
               <li class="stars-f"></li>
               <li class="stars-f"></li>
             </ul>
-            <p>“This is an amazing product this is my third jar of the age defying cream. I am 59 years old and have noticed a much improved difference in my skin. It looks brighter and has greatly improved areas around my eyes, forehead and mouth. I will definitely continue with this cream it's worth every penny!!!” ”</p>
+            <p>“This is an amazing product this is my third jar of the age defying cream. I am 59 years old and have noticed a much improved difference in my skin. It looks brighter and has greatly improved areas around my eyes, forehead and mouth. I will definitely continue with this cream it's worth every penny!!!”</p>
             <p class="testi-txt3">Kathryn S.</p>
           </div>
         </div>
@@ -1143,6 +1143,11 @@ export default {
   line-height: 24px;
   font-weight: 500;
 }
+.list-types li:not(:last-child){
+  @media(min-width:992px){
+  margin-right: 60px;
+  }
+}
 
 @media (max-width: 991px) {
   .list-types li {
@@ -1394,6 +1399,7 @@ export default {
   text-align: center;
   font-size: 19px;
   line-height: 23px;
+  justify-content: center;
 }
 
 .promise .row img {
@@ -1563,6 +1569,7 @@ export default {
 }
 
 .resp-tab h4 {
+  text-align: center;
   font-size: 20px;
   line-height: 24px;
   font-weight: 500;
@@ -1939,6 +1946,10 @@ export default {
   background: #6C5D57;
   display: none;
 }
+.faq .question:hover{
+  color: #000 ;
+  cursor: pointer;
+}
 
 .faq .answer {
   color: #333;
@@ -2029,10 +2040,5 @@ export default {
   .hurry a {
     margin: 15px auto 0;
   }
-}
-
-.hurry a:hover {
-  background-color: #fff713;
-  color: #222;
 }
 </style>
