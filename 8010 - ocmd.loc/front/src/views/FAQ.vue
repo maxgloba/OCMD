@@ -122,7 +122,7 @@ export default {
       font-size: 26px;
     }
     &:hover{
-      color: #000;
+      color: #dee2e7;
     }
     &:before{
       color: #505050;
