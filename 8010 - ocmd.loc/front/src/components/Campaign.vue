@@ -1054,6 +1054,10 @@ export default {
   font-weight: 600;
   position: relative;
   margin: 3px 0;
+  padding-left: 30px;
+  @media (min-width: 768px) {
+    padding-left: 40px;
+  }
 }
 
 @media (min-width: 992px) {
@@ -1069,6 +1073,8 @@ export default {
   color: #02b402;
   font-weight: 700;
   margin-right: 10px;
+  position: absolute;
+  left: 15px;
 }
 
 .list-resp {

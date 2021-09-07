@@ -45,8 +45,10 @@ export default {
           display: block;
           position: absolute;
           color:#f13221;
-          font-weight: 100;
+          font-weight: 300;
           transform: scale(3.5) rotate(45deg);
+          line-height: 1;
+          font-family: Arial;
         }
       span{
         display: none;

@@ -21,7 +21,7 @@ export default {
         },
         {
           id: 213,
-          price: 129.00,
+          price: 219.00,
           shipping: 0,
           ea: 73,
           save: 171,
