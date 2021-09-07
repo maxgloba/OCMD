@@ -1904,6 +1904,9 @@ export default {
   user-select: none;
   font-size: 18px;
   line-height: 22px;
+  &:hover{
+    color: #dee2e7;
+  }
 }
 
 @media (min-width: 992px) {
@@ -1946,11 +1949,6 @@ export default {
   background: #6C5D57;
   display: none;
 }
-.faq .question:hover{
-  color: #000 ;
-  cursor: pointer;
-}
-
 .faq .answer {
   color: #333;
   font-size: 15px;

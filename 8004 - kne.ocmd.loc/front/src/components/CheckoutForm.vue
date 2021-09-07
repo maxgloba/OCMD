@@ -78,14 +78,14 @@
             <div class="field field-cc col-md-12">
               <h5>Card Number</h5>
               <!-- <label for="cardNumber">Card Number</label> -->
-              <input type="text" v-model="cardNumber" id="cardNumber" placeholder="0000 0000 0000 0000" minlength="16" maxlength="16" required />
+              <input type="text" v-model="cardNumber" id="cardNumber" @change="cardNumberChange" @input="cardNumberInput" placeholder="0000 0000 0000 0000" minlength="19" maxlength="19" required />
             </div>
             <div class="field field-cc field-exp col-12">
               <h5>Expiration date</h5>
             </div>
             <div class="field field-cc field-sel col-md-3">
               <span v-if="!cardMonth">Month</span>
-              <select v-model="cardMonth" id="cardMonth" required>
+              <select v-model="cardMonth" id="cardMonth" @input="validation" required>
                 <option disabled default selected value="" >Month</option>
                 <option value="01">01</option>
                 <option value="02">02</option>
@@ -103,7 +103,7 @@
             </div>
             <div class="field field-cc field-sel col-md-3">
               <span v-if="!cardYear">Year</span>
-              <select v-model="cardYear" id="cardYear" required>
+              <select v-model="cardYear" id="cardYear" @input="validation" required>
                 <option disabled default selected >Year</option>
                 <option value="21">21</option>
                 <option value="22">22</option>
@@ -121,10 +121,10 @@
             <div class="field field-cc field-cvv col-md-3">
               <!-- <label for="cardSecurityCode">CVV</label> -->
               <h5>CVV</h5>
-              <input type="text" v-model="cardSecurityCode" id="cardSecurityCode" placeholder="***" minlength="3" maxlength="4" required />
+              <input type="text" v-model="cardSecurityCode" @input="validation" id="cardSecurityCode" placeholder="***" minlength="3" maxlength="4" required />
             </div>
             <div class="field field-cc col-12">
-              <button type="submit">Proceed To Checkout</button>
+              <button type="submit" :disabled="(validFormCart) ? false:true">Proceed To Checkout</button>
             </div>
           </div>
         </div>
@@ -159,6 +159,7 @@ export default {
       p_name: false,
 
       validForm: false,
+      validFormCart: false,
       stepOneActive: true,
       viewing: 10,
 
@@ -202,6 +203,11 @@ export default {
       } else {
         this.validForm = false;
       }
+      if( this.cardNumber !== null && this.cardMonth !== null && this.cardYear !== null && this.cardSecurityCode !== null){
+        this.validFormCart = true;
+      } else {
+        this.validFormCart = false;
+      }
     },
     emailAddressChange(e){
       const emailReg = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -213,9 +219,26 @@ export default {
       }
       this.validation();
     },
-      phoneNumberInput(e){
+    phoneNumberInput(e){
       let arr = e.target.value.replace(/[^\dA-Z]/g, '').replace(/[\s]/g, '').split('');
       this.phoneNumber = arr.toString().replace(/[,]/g, '');
+    },
+    cardNumberInput(e){
+      let arr = e.target.value.replace(/[^\dA-Z]/g, '').replace(/[\s]/g, '').split('');
+      if(arr.length > 4) arr.splice(4, 0, ' ');
+      if(arr.length >= 9) arr.splice(9, 0, ' ');
+      if(arr.length > 14) arr.splice(14, 0, ' ');
+      this.cardNumber = arr.toString().replace(/[,]/g, '');
+    },
+    cardNumberChange(e){
+      let arr = e.target.value.replace(/[^\dA-Z]/g, '').replace(/[\s]/g, '').split('');
+      if(arr.length < 16){
+        e.target.classList.add('no-valid');
+      } else {
+        e.target.classList.remove('no-valid');
+        // this.cardNumber = e.target.value.replace(/[^\dA-Z]/g, '').replace(/[\s]/g, '').split('').toString().replace(/[,]/g, '');
+      }
+      this.validation();
     },
     redirectToUpsell(){
       let upsellType = [1, 4, 27, 30, 39, 42, 51, 54, 95, 108, 111];
