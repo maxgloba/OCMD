@@ -227,33 +227,33 @@
             </div>
           </div>
         </div>
-      </div>
-      <div class="promise">
-        <h2 class="promise-title"><span>OCMD Principles</span></h2>
-        <div class="row">
+        <div class="promise">
+          <h2 class="promise-title"><span>OCMD Principles</span></h2>
+          <div class="row">
           <!-- <div class="col-4 col-md-2">
           <img src="@/assets/img/campaign/chk-bar-list-icn2.png">
           Fragrance <br> Free
               </div> -->
-          <div class="col-4 col-md-2">
-            <img src="@/assets/img/campaign/chk-bar-list-icn3.png">
-              Cruelty <br> Free
-          </div>
-          <div class="col-4 col-md-2">
-            <img src="@/assets/img/campaign/chk-bar-list-icn6.png">
-              Safe <br> to Use
-          </div>
-          <div class="col-4 col-md-2">
-            <img src="@/assets/img/campaign/chk-bar-list-icn4.png">
-              BHA <br> Free
-          </div>
-          <div class="col-4 col-md-2">
-            <img src="@/assets/img/campaign/chk-bar-list-icn1.png">
-              Paraben <br> Free
-          </div>
-          <div class="col-4 col-md-2">
-            <img src="@/assets/img/campaign/chk-bar-list-icn5.png">
-              Chemical <br> Free
+            <div class="col-4 col-md-2">
+              <img src="@/assets/img/campaign/chk-bar-list-icn3.png">
+                Cruelty <br> Free
+            </div>
+            <div class="col-4 col-md-2">
+              <img src="@/assets/img/campaign/chk-bar-list-icn6.png">
+                Safe <br> to Use
+            </div>
+            <div class="col-4 col-md-2">
+              <img src="@/assets/img/campaign/chk-bar-list-icn4.png">
+                BHA <br> Free
+            </div>
+            <div class="col-4 col-md-2">
+              <img src="@/assets/img/campaign/chk-bar-list-icn1.png">
+                Paraben <br> Free
+            </div>
+            <div class="col-4 col-md-2">
+              <img src="@/assets/img/campaign/chk-bar-list-icn5.png">
+                Chemical <br> Free
+            </div>
           </div>
         </div>
       </div>
@@ -1148,8 +1148,9 @@ export default {
 
 @media (min-width: 992px) {
   .list-types li {
-    font-size: 24px;
+    font-size: 18px;
     line-height: 28px;
+    justify-content: space-between;
   }
 }
 
@@ -1405,7 +1406,6 @@ export default {
   text-align: center;
   font-size: 19px;
   line-height: 23px;
-  margin-bottom: 15px;
 }
 
 .promise .row img {
