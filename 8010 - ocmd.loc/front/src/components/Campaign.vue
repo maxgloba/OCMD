@@ -1577,6 +1577,7 @@ export default {
   display: block;
   padding-bottom: 10px;
   margin-bottom: 15px;
+  text-align: center;
 }
 
 @media (min-width: 992px) {
