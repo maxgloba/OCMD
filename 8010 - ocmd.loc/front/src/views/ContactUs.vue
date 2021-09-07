@@ -13,15 +13,15 @@
       <form class="contact row" @submit="submitContact">
         <div class="field col-sm-6">
           <label for="name">Name</label>
-          <input type="text" v-model="name" minlength="2"  id="name" required>
+          <input type="text" v-model="name" minlength="2"  id="name" @change="validation" @input="validation" required>
         </div>
         <div class="field col-sm-6">
           <label for="email">Email*</label>
-          <input type="email" v-model="email" id="email" @change="emailAddressChange" required>
+          <input type="email" v-model="email" id="email" @change="emailAddressChange" @input="validation" required>
         </div>
         <div class="field col-12">
           <label for="phone">Phone</label>
-          <input type="tel" v-model="phone" id="phone">
+          <input type="tel" v-model="phone" id="phone" maxlength="11" @input="phoneNumberInput " @change="validation">
         </div>
         <div class="field col-12">
           <label for="message">Message</label>
@@ -71,6 +71,10 @@ export default {
         e.target.classList.remove('no-valid');
       }
       this.validation();
+    },
+    phoneNumberInput(e){
+      let arr = e.target.value.replace(/[^\dA-Z]/g, '').replace(/[\s]/g, '').split('');
+      this.phoneNumber = arr.toString().replace(/[,]/g, '');
     },
     submitContact(e){
       e.preventDefault()

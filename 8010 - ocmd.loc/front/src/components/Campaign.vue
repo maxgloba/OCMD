@@ -499,7 +499,7 @@
               <li class="stars-f"></li>
               <li class="stars-f"></li>
             </ul>
-            <p>“This is an amazing product this is my third jar of the age defying cream. I am 59 years old and have noticed a much improved difference in my skin. It looks brighter and has greatly improved areas around my eyes, forehead and mouth. I will definitely continue with this cream it's worth every penny!!!” ”</p>
+            <p>“This is an amazing product this is my third jar of the age defying cream. I am 59 years old and have noticed a much improved difference in my skin. It looks brighter and has greatly improved areas around my eyes, forehead and mouth. I will definitely continue with this cream it's worth every penny!!!”</p>
             <p class="testi-txt3">Kathryn S.</p>
           </div>
         </div>
@@ -1904,6 +1904,9 @@ export default {
   user-select: none;
   font-size: 18px;
   line-height: 22px;
+  &:hover{
+    color: #dee2e7;
+  }
 }
 
 @media (min-width: 992px) {
@@ -2036,10 +2039,5 @@ export default {
   .hurry a {
     margin: 15px auto 0;
   }
-}
-
-.hurry a:hover {
-  background-color: #fff713;
-  color: #222;
 }
 </style>

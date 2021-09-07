@@ -121,6 +121,9 @@ export default {
     @media(min-width:768px){
       font-size: 26px;
     }
+    &:hover{
+      color: #000;
+    }
     &:before{
       color: #505050;
       content: "+";

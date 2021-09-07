@@ -452,9 +452,7 @@ p{
     }
   }
   .row{
-    @media(min-width:1200px){
-      margin-left: 60px;
-    }
+    margin-left: 60px;
     .col-sm-6{
       display: flex;
       margin: 15px 0;

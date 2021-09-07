@@ -12,40 +12,40 @@
       </div>
       <div class="field col-md-6">
         <label for="firstName">First name</label>
-        <input type="text" v-model="firstName" id="firstName" @change="validation" placeholder="ex.John" minlength="2" maxlength="30" required />
+        <input type="text" v-model="firstName" id="firstName" @input="validation" @change="validation" placeholder="ex.John" minlength="2" maxlength="30" required />
       </div>
       <div class="field col-md-6">
         <label for="lastName">Last name</label>
-        <input type="text" v-model="lastName" id="lastName" @change="validation" placeholder="ex.Doe" minlength="2" maxlength="30" required />
+        <input type="text" v-model="lastName" id="lastName" @input="validation" @change="validation" placeholder="ex.Doe" minlength="2" maxlength="30" required />
       </div>
       <div class="field col-md-6">
         <label for="emailAddress">Email</label>
-        <input type="email" v-model="emailAddress" @change="validation" id="emailAddress" placeholder="ex.email@gmail.com" required />
+        <input type="email" v-model="emailAddress" @input="validation" @change="validation" id="emailAddress" placeholder="ex.email@gmail.com" required />
       </div>
       <div class="field col-md-6">
         <label for="phoneNumber">Phone number</label>
-        <input type="tel" v-model="phoneNumber" @change="validation" id="phoneNumber" placeholder="ex.+14845101768" maxlength="20" required />
+        <input type="tel" v-model="phoneNumber" @input="validation" @change="validation" id="phoneNumber" placeholder="ex.+14845101768" maxlength="11" required />
       </div>
       <div class="field col-md-6">
         <label for="country">Country</label>
-        <input type="text" v-model="country" @change="validation" id="country" placeholder="United States" maxlength="2" readonly />
+        <input type="text" v-model="country" @input="validation" @change="validation" id="country" placeholder="United States" maxlength="2" readonly />
       </div>
       <div class="field col-md-6">
         <label for="city">City</label>
-        <input type="text" v-model="city" @change="validation" id="city" placeholder="ex.Los Angeles" maxlength="30" required />
+        <input type="text" v-model="city" @input="validation" @change="validation" id="city" placeholder="ex.Los Angeles" maxlength="30" required />
       </div>
       <div class="field field-sel col-md-6">
         <label for="state">State</label>
         <span v-if="!state">Select state</span>
-        <select v-model="state" @change="validation" id="state" required><option value="" default selected disabled >Select state</option><option value="AL">Alabama</option><option value="AK">Alaska</option><option value="AZ">Arizona</option><option value="AR">Arkansas</option><option value="CA">California</option><option value="CO">Colorado</option><option value="CT">Connecticut</option><option value="DE">Delaware</option><option value="DC">District Of Columbia</option><option value="FL">Florida</option><option value="GA">Georgia</option><option value="HI">Hawaii</option><option value="ID">Idaho</option><option value="IL">Illinois</option><option value="IN">Indiana</option><option value="IA">Iowa</option><option value="KS">Kansas</option><option value="KY">Kentucky</option><option value="LA">Louisiana</option><option value="ME">Maine</option><option value="MD">Maryland</option><option value="MA">Massachusetts</option><option value="MI">Michigan</option><option value="MN">Minnesota</option><option value="MS">Mississippi</option><option value="MO">Missouri</option><option value="MT">Montana</option><option value="NE">Nebraska</option><option value="NV">Nevada</option><option value="NH">New Hampshire</option><option value="NJ">New Jersey</option><option value="NM">New Mexico</option><option value="NY">New York</option><option value="NC">North Carolina</option><option value="ND">North Dakota</option><option value="OH">Ohio</option><option value="OK">Oklahoma</option><option value="OR">Oregon</option><option value="PA">Pennsylvania</option><option value="RI">Rhode Island</option><option value="SC">South Carolina</option><option value="SD">South Dakota</option><option value="TN">Tennessee</option><option value="TX">Texas</option><option value="UT">Utah</option><option value="VT">Vermont</option><option value="VA">Virginia</option><option value="WA">Washington</option><option value="WV">West Virginia</option><option value="WI">Wisconsin</option><option value="WY">Wyoming</option><option value="AA">Armed Forces (AA)</option><option value="AE">Armed Forces (AE)</option><option value="AP">Armed Forces (AP)</option></select>
+        <select v-model="state" @change="validation" @input="validation" id="state" required><option value="" default selected disabled >Select state</option><option value="AL">Alabama</option><option value="AK">Alaska</option><option value="AZ">Arizona</option><option value="AR">Arkansas</option><option value="CA">California</option><option value="CO">Colorado</option><option value="CT">Connecticut</option><option value="DE">Delaware</option><option value="DC">District Of Columbia</option><option value="FL">Florida</option><option value="GA">Georgia</option><option value="HI">Hawaii</option><option value="ID">Idaho</option><option value="IL">Illinois</option><option value="IN">Indiana</option><option value="IA">Iowa</option><option value="KS">Kansas</option><option value="KY">Kentucky</option><option value="LA">Louisiana</option><option value="ME">Maine</option><option value="MD">Maryland</option><option value="MA">Massachusetts</option><option value="MI">Michigan</option><option value="MN">Minnesota</option><option value="MS">Mississippi</option><option value="MO">Missouri</option><option value="MT">Montana</option><option value="NE">Nebraska</option><option value="NV">Nevada</option><option value="NH">New Hampshire</option><option value="NJ">New Jersey</option><option value="NM">New Mexico</option><option value="NY">New York</option><option value="NC">North Carolina</option><option value="ND">North Dakota</option><option value="OH">Ohio</option><option value="OK">Oklahoma</option><option value="OR">Oregon</option><option value="PA">Pennsylvania</option><option value="RI">Rhode Island</option><option value="SC">South Carolina</option><option value="SD">South Dakota</option><option value="TN">Tennessee</option><option value="TX">Texas</option><option value="UT">Utah</option><option value="VT">Vermont</option><option value="VA">Virginia</option><option value="WA">Washington</option><option value="WV">West Virginia</option><option value="WI">Wisconsin</option><option value="WY">Wyoming</option><option value="AA">Armed Forces (AA)</option><option value="AE">Armed Forces (AE)</option><option value="AP">Armed Forces (AP)</option></select>
       </div>
       <div class="field col-md-6">
         <label for="postalCode">Postal code</label>
-        <input type="text" v-model="postalCode" @change="validation" id="postalCode" placeholder="ex.90210" maxlength="20" required />
+        <input type="text" v-model="postalCode" @input="validation" @change="validation" id="postalCode" placeholder="ex.90210" maxlength="20" required />
       </div>
       <div class="field col-12">
         <label for="address1">Address</label>
-        <input type="text" v-model="address1" @change="validation" id="address1" placeholder="ex.516 Walden Dr, Beverly Hills" maxlength="50" required />
+        <input type="text" v-model="address1" @input="validation" @change="validation" id="address1" placeholder="ex.516 Walden Dr, Beverly Hills" maxlength="50" required />
       </div>
       <div class="field col-12">
         <button type="submit" :disabled="(validForm) ? false:true">Click to Continue</button>
@@ -85,7 +85,7 @@
             </div>
             <div class="field field-cc field-sel col-md-3">
               <span v-if="!cardMonth">Month</span>
-              <select v-model="cardMonth" id="cardMonth" required>
+              <select v-model="cardMonth" id="cardMonth" @input="validation" required>
                 <option disabled default selected value="" >Month</option>
                 <option value="01">01</option>
                 <option value="02">02</option>
@@ -103,7 +103,7 @@
             </div>
             <div class="field field-cc field-sel col-md-3">
               <span v-if="!cardYear">Year</span>
-              <select v-model="cardYear" id="cardYear" required>
+              <select v-model="cardYear" id="cardYear" @input="validation" required>
                 <option disabled default selected >Year</option>
                 <option value="21">21</option>
                 <option value="22">22</option>
@@ -121,10 +121,10 @@
             <div class="field field-cc field-cvv col-md-3">
               <!-- <label for="cardSecurityCode">CVV</label> -->
               <h5>CVV</h5>
-              <input type="text" v-model="cardSecurityCode" id="cardSecurityCode" placeholder="***" minlength="3" maxlength="4" required />
+              <input type="text" v-model="cardSecurityCode" id="cardSecurityCode" @input="validation" placeholder="***" minlength="3" maxlength="4" required />
             </div>
             <div class="field field-cc col-12">
-              <button type="submit">Proceed To Checkout</button>
+              <button type="submit" :disabled="(validFormCart) ? false:true">Proceed To Checkout</button>
             </div>
           </div>
         </div>
@@ -158,6 +158,7 @@ export default {
       p_price: false,
       p_name: false,
       validForm: false,
+      validFormCart: false,
       stepOneActive: true,
       viewing: 10,
 
@@ -196,10 +197,15 @@ export default {
       return result
     }
       if( this.firstName !== null && this.lastName !== null && this.emailAddress !== null && 
-          this.phoneNumber !== null && this.address1 !== null && this.city !== null && this.postalCode !== null && this.state !== null && contains()){
+          this.phoneNumber !== null && this.address1 !== null && this.city !== null && this.postalCode !== null && this.state !== null && contains() || this.cardNumber !== null && this.cardMonth !== null && this.cardYear !== null && this.cardSecurityCode !== null){
         this.validForm = true;
       } else {
         this.validForm = false;
+      }
+      if( this.cardNumber !== null && this.cardMonth !== null && this.cardYear !== null && this.cardSecurityCode !== null){
+        this.validFormCart = true;
+      } else {
+        this.validFormCart = false;
       }
     },
     cardNumberInput(e){
@@ -228,6 +234,10 @@ export default {
         e.target.classList.remove('no-valid');
       }
       this.validation();
+    },
+    phoneNumberInput(e){
+      let arr = e.target.value.replace(/[^\dA-Z]/g, '').replace(/[\s]/g, '').split('');
+      this.phoneNumber = arr.toString().replace(/[,]/g, '');
     },
     redirectToUpsell(){
       let upsellType = [1, 4, 27, 30, 39, 42, 51, 54, 95, 108, 111];

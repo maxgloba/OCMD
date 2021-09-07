@@ -9,7 +9,7 @@
     <section class="products">
       <div class="container">
         <div class="row">
-          <div class="col-md-4">
+          <div class="col-lg-4">
             <div class="products-sidebar">
               <div class="gallery">
                 <img class="gallery-img" src="@/assets/img/product/dps/1.jpg" width="100%">
@@ -50,7 +50,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-8">
+          <div class="col-lg-8">
             <h1 class="products-title">Deep Perfecting Serum</h1>
             <div class="products-sub">
               Boost your skin-saving regimen with Deep Perfecting Face & Neck Serum (
@@ -225,6 +225,35 @@
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+      <div class="promise">
+        <h2 class="promise-title"><span>OCMD Principles</span></h2>
+        <div class="row">
+          <!-- <div class="col-4 col-md-2">
+          <img src="@/assets/img/campaign/chk-bar-list-icn2.png">
+          Fragrance <br> Free
+              </div> -->
+          <div class="col-4 col-md-2">
+            <img src="@/assets/img/campaign/chk-bar-list-icn3.png">
+              Cruelty <br> Free
+          </div>
+          <div class="col-4 col-md-2">
+            <img src="@/assets/img/campaign/chk-bar-list-icn6.png">
+              Safe <br> to Use
+          </div>
+          <div class="col-4 col-md-2">
+            <img src="@/assets/img/campaign/chk-bar-list-icn4.png">
+              BHA <br> Free
+          </div>
+          <div class="col-4 col-md-2">
+            <img src="@/assets/img/campaign/chk-bar-list-icn1.png">
+              Paraben <br> Free
+          </div>
+          <div class="col-4 col-md-2">
+            <img src="@/assets/img/campaign/chk-bar-list-icn5.png">
+              Chemical <br> Free
           </div>
         </div>
       </div>
@@ -452,7 +481,7 @@
               <li class="stars-f"></li>
               <li class="stars-f"></li>
             </ul>
-            <p>“This is an amazing product this is my third jar of the age defying cream. I am 59 years old and have noticed a much improved difference in my skin. It looks brighter and has greatly improved areas around my eyes, forehead and mouth. I will definitely continue with this cream it's worth every penny!!!” ”</p>
+            <p>“This is an amazing product this is my third jar of the age defying cream. I am 59 years old and have noticed a much improved difference in my skin. It looks brighter and has greatly improved areas around my eyes, forehead and mouth. I will definitely continue with this cream it's worth every penny!!!”</p>
             <p class="testi-txt3">Kathryn S.</p>
           </div>
         </div>
@@ -1340,6 +1369,28 @@ export default {
   -webkit-transform: translate(0, -50%);
   transform: translate(0, -50%);
 }
+.promise-title {
+  font-size: 30px;
+  line-height: 34px;
+  font-weight: 600;
+  color: #6C5D57;
+  text-align: center;
+  position: relative;
+  margin: 60px 0 30px;
+}
+
+.promise-title:before {
+  content: "";
+  height: 1px;
+  width: 100%;
+  display: block;
+  background: #6C5D57;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+}
 
 .promise-title span {
   background: #fff;
@@ -1350,9 +1401,11 @@ export default {
 }
 
 .promise .row {
+  justify-content: space-between;
   text-align: center;
   font-size: 19px;
   line-height: 23px;
+  margin-bottom: 15px;
 }
 
 .promise .row img {
@@ -1367,6 +1420,7 @@ export default {
     margin-bottom: 30px;
   }
 }
+
 
 .details {
   background: #EEEEEE;
@@ -1856,6 +1910,9 @@ export default {
   user-select: none;
   font-size: 18px;
   line-height: 22px;
+  &:hover{
+    color: #dee2e7;
+  }
 }
 
 @media (min-width: 992px) {
@@ -1988,10 +2045,5 @@ export default {
   .hurry a {
     margin: 15px auto 0;
   }
-}
-
-.hurry a:hover {
-  background-color: #fff713;
-  color: #222;
 }
 </style>
