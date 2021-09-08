@@ -128,7 +128,10 @@ export default {
       }
     }
   }
+
   input[type="submit"]{
+    background: #fe6f61;
+    color: #fff;
     &:disabled{
       background: gray;
       cursor: default;

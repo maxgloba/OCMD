@@ -654,7 +654,8 @@ label{
   color: #9b9b9b;
 }
 button[type="submit"]{
-  background: #000;
+  text-transform: none;
+  background: #fe6f61;
   color: #fff;
   font-size: 18px;
   font-weight: 700;
