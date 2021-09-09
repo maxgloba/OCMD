@@ -1,5 +1,7 @@
 <template>
-  <div class="loader"></div>
+  <div class="loader">
+    <div class="loader-msg" v-if="this.$store.state.loaderMsg">{{ this.$store.state.loaderMsg }}</div>
+  </div>
 </template>
 <script>
 export default {
@@ -38,6 +40,22 @@ export default {
   }
   &-hide{
     display: none;
+  }
+  &-msg {
+    position: fixed;
+    top: 30px;
+    font-size: 25px;
+    max-width: 600px;
+    text-align: center;
+    color: #000;
+    font-weight: 700;
+    background: #fff;
+    padding: 30px;
+    width: calc(100% - 30px);
+    @media(min-width:768px){
+      font-size: 30px;
+      width: auto;
+    }
   }
 }
 

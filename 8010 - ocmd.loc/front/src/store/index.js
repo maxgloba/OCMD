@@ -12,6 +12,7 @@ export default new Vuex.Store({
     crosssell: false,
     orderId: false,
     loader: false,
+    loaderMsg: false,
     payment: 'cc',
     product_type: false,
     mode: 'live'

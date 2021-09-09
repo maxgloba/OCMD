@@ -375,6 +375,7 @@ export default {
       let cart = JSON.parse(localStorage.cart);
       let userData = JSON.parse(localStorage.data);
       this.$store.state.loader = true;
+      this.$store.state.loaderMsg = "Please don't close or reload the window, we must confirm your PayPal transaction.";
       Request.konnektivePaypalConfirm({
         token: this.token,
         payerId: this.payerId,
@@ -392,6 +393,7 @@ export default {
       })
         .then(res => {
           this.$store.state.loader = false;
+          this.$store.state.loaderMsg = false;
           if( res.result == 'SUCCESS' ){
             fbq('track', 'Purchase', {
               currency: "USD",
