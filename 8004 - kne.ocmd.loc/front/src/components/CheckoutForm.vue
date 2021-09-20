@@ -286,7 +286,6 @@ export default {
         city: this.city,
         postalCode: this.postalCode,
         state: this.state,
-        cardNumber: this.cardNumber,
         cardMonth: this.cardMonth,
         cardYear: this.cardYear,
         cardSecurityCode: this.cardSecurityCode,
@@ -297,9 +296,15 @@ export default {
         campaignId: localStorage.campaignId
       }
 
-      if(localStorage.affId){
-        data.affId = localStorage.affId;
-      }
+      data.cardNumber = this.cardNumber.replace(/[^\dA-Z]/g, '').replace(/[\s]/g, '');
+
+      if(localStorage.affId) data.affId = localStorage.affId;
+
+      if(localStorage.utm_source) data.utm_source = localStorage.utm_source;
+      if(localStorage.utm_medium) data.utm_medium = localStorage.utm_medium;
+      if(localStorage.utm_campaign) data.utm_campaign = localStorage.utm_campaign;
+      if(localStorage.utm_content) data.utm_content = localStorage.utm_content;
+      if(localStorage.utm_term) data.utm_term = localStorage.utm_term;
 
       Request.charge(data)
         .then(res => {
@@ -355,9 +360,13 @@ export default {
         campaignId: localStorage.campaignId
       }
 
-      if(localStorage.affId){
-        data.affId = localStorage.affId;
-      }
+      if(localStorage.affId) data.affId = localStorage.affId;
+
+      if(localStorage.utm_source) data.utm_source = localStorage.utm_source;
+      if(localStorage.utm_medium) data.utm_medium = localStorage.utm_medium;
+      if(localStorage.utm_campaign) data.utm_campaign = localStorage.utm_campaign;
+      if(localStorage.utm_content) data.utm_content = localStorage.utm_content;
+      if(localStorage.utm_term) data.utm_term = localStorage.utm_term;
 
       Request.konnektivePaypalAdd(data)
         .then(res => {

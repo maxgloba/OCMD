@@ -1,14 +1,14 @@
 <template>
   <div>
     <section class="banner">
-      <div class="container-fluid">
+      <div class="container">
         <div class="row row-center">
-          <div class="col-lg-7 order-md-2">
+          <div class="col-md-7 order-md-2">
             <h2 class="section-title">Dr. Tess Mauricio</h2>
             <h4 class="section-subtitle">“You can now bring some of the results of procedures that thousands of my patients use in my clinic to erase years of wrinkles to your home.”</h4>
             <p><span class="link link-def" style="text-decoration: none!important;">Stanford educated Board Certified Dermatologist</span></p>
           </div>
-          <div class="col-lg-5 text-right"><img src="@/assets/img/home/tessmauricio.jpg" alt="" width="400"></div>
+          <div class="col-md-5 text-right"><img src="@/assets/img/home/tessmauricio.jpg" alt="" width="400"></div>
         </div>
       </div>
     </section>

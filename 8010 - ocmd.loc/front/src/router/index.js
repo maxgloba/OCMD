@@ -26,6 +26,11 @@ const routes = [
   //   component: () => import('../views/Test.vue')
   // },
   {
+    path: '/privacy-policy',
+    name: 'privacypolicy',
+    component: () => import('../views/PrivacyPolicy.vue')
+  },
+  {
     path: '/3-jars-drc-upsell',
     name: 'sellingOne',
     component: () => import('../views/3_jars_drc_upsell.vue')

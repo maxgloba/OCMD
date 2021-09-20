@@ -31,6 +31,16 @@ const routes = [
   //   component: () => import('../views/Campaign_9.vue')
   // },
   {
+    path: '/privacy-policy',
+    name: 'privacypolicy',
+    component: () => import('../views/PrivacyPolicy.vue')
+  },
+  {
+    path: '/report',
+    name: 'report',
+    component: () => import('../views/Report.vue')
+  },
+  {
     path: '/paypal',
     name: 'paypal',
     component: () => import('../views/Paypal.vue'),

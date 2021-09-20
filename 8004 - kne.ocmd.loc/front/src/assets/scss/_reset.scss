@@ -66,3 +66,9 @@ sup {
 em{
 	font-style: italic;
 }
+
+.report{
+	.page-header, .footer-main{
+		display: none;
+	}
+}

@@ -100,5 +100,23 @@ export default {
       params: data
     });
     return res.data;
+  },
+  async orderConfirm(data) {
+    let res = await axios.post(api+'/konnektive/order-confirm', {
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      params: data
+    });
+    return res.data;
+  },
+  async orders(data) {
+    let res = await axios.post(api+'/konnektive/orders', {
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      params: data
+    });
+    return res.data;
   }
 }

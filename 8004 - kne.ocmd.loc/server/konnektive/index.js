@@ -167,9 +167,13 @@ router.route('/konnektive/paypal/add')
             shipPostalCode: req.body.params.postalCode,
             shipState: req.body.params.state
           }
-          if(req.body.params.affId){
-            data.affId = req.body.params.affId;
-          }
+          if(req.body.params.affId) data.affId = req.body.params.affId;
+          if(req.body.params.utm_source) data.custom1 = req.body.params.utm_source;
+          if(req.body.params.utm_medium) data.custom2 = req.body.params.utm_medium;
+          if(req.body.params.utm_campaign) data.custom3 = req.body.params.utm_campaign;
+          if(req.body.params.utm_content) data.custom4 = req.body.params.utm_content;
+          if(req.body.params.utm_term) data.custom5 = req.body.params.utm_term;
+
           return konnektive('leads/import/', 'POST', data)
         }
       })
@@ -308,9 +312,12 @@ router.route('/charge')
       httpReferer: req.body.params.httpReferer
     }
 
-    if(req.body.params.affId){
-      data.affId = req.body.params.affId;
-    }
+    if(req.body.params.affId) data.affId = req.body.params.affId;
+    if(req.body.params.utm_source) data.custom1 = req.body.params.utm_source;
+    if(req.body.params.utm_medium) data.custom2 = req.body.params.utm_medium;
+    if(req.body.params.utm_campaign) data.custom3 = req.body.params.utm_campaign;
+    if(req.body.params.utm_content) data.custom4 = req.body.params.utm_content;
+    if(req.body.params.utm_term) data.custom5 = req.body.params.utm_term;
 
     konnektive('order/import/', 'POST', data)
       .then(result => {
@@ -351,5 +358,50 @@ router.route('/konnektive/order-confirm')
       })
       .catch(err => res.send(err))
 })
+
+router.route('/konnektive/orders')
+  .post((req, res) => {
+    let ordersArray = [];
+    konnektive('order/query/', 'POST', {
+      loginId: loginId,
+      password: password,
+      campaignId: req.body.params.campaignId,
+      startDate: req.body.params.startDate,
+      endDate: req.body.params.endDate,
+      page: 1,
+      resultsPerPage: 200
+    })
+      .then(ordersData => {
+        let orders = JSON.parse(ordersData.body)
+        ordersArray = orders.message.data;
+        let pages = Math.ceil(orders.message.totalResults / 200);
+        if(pages > 1){
+          for (let i = 2; i <= pages; i++) {
+            setTimeout(()=>{
+              konnektive('order/query/', 'POST', {
+                loginId: loginId,
+                password: password,
+                campaignId: req.body.params.campaignId,
+                startDate: req.body.params.startDate,
+                endDate: req.body.params.endDate,
+                page: i,
+                resultsPerPage: 200
+              })
+                .then(ordersDataNew => {
+                  let ordersNew = JSON.parse(ordersDataNew.body)
+                  ordersNew.message.data.forEach(order => {
+                    ordersArray.push(order);
+                  })
+                })
+            }, i * 750);
+          }
+          setTimeout(()=>{
+            res.send(ordersArray);
+          }, pages * 1000);
+        } else {
+          res.send(ordersArray);
+        }
+      })
+});
 
 module.exports = router
