@@ -123,8 +123,8 @@ let session_id,
   ipAddress = '54.177.181.42',
   loginId = 'maxapi',
   password = '9J8iak45',
-  pageUrl = 'https://kne.ocmd.co'
-  // pageUrl = 'http://localhost:8081'
+  // pageUrl = 'https://kne.ocmd.co'
+  pageUrl = 'http://localhost:8080'
 
 
 router.route('/konnektive/paypal/add')
