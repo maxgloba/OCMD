@@ -77,7 +77,6 @@
             </div>
             <div class="field field-cc col-md-12">
               <h5>Card Number</h5>
-              <!-- <label for="cardNumber">Card Number</label> -->
               <input type="text" v-model="cardNumber" id="cardNumber" @change="cardNumberChange" @input="cardNumberInput" placeholder="0000 0000 0000 0000" minlength="19" maxlength="19" required />
             </div>
             <div class="field field-cc field-exp col-12">
@@ -119,7 +118,6 @@
             </div>
             <div class="col-12"></div>
             <div class="field field-cc field-cvv col-md-3">
-              <!-- <label for="cardSecurityCode">CVV</label> -->
               <h5>CVV</h5>
               <input type="text" v-model="cardSecurityCode" @input="validation" id="cardSecurityCode" placeholder="***" minlength="3" maxlength="4" required />
             </div>
@@ -155,6 +153,7 @@ export default {
   name: 'CheckoutForm',
   data(){
     return {
+      klarna: false,
       p_price: false,
       p_name: false,
 
@@ -297,6 +296,8 @@ export default {
       }
 
       data.cardNumber = this.cardNumber.replace(/[^\dA-Z]/g, '').replace(/[\s]/g, '');
+
+      if(this.klarna) data.klarna = this.klarna;
 
       if(localStorage.affId) data.affId = localStorage.affId;
 

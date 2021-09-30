@@ -123,8 +123,8 @@ let session_id,
   ipAddress = '54.177.181.42',
   loginId = 'maxapi',
   password = '9J8iak45',
-  // pageUrl = 'https://kne.ocmd.co'
-  pageUrl = 'http://localhost:8080'
+  pageUrl = 'https://kne.ocmd.co'
+  // pageUrl = 'http://localhost:8081'
 
 
 router.route('/konnektive/paypal/add')
@@ -303,13 +303,21 @@ router.route('/charge')
       billShipSame: '1',
       ipAddress: ipAddress,
       campaignId: req.body.params.campaignId,
-      paySource: 'CREDITCARD',
       cardNumber: req.body.params.cardNumber,
       cardMonth: req.body.params.cardMonth,
       cardYear: req.body.params.cardYear,
       cardSecurityCode: req.body.params.cardSecurityCode,
       product1_id: req.body.params.product1_id,
       httpReferer: req.body.params.httpReferer
+    }
+
+    if(req.body.params.klarna){
+      data.paySource = 'PREPAID';
+      data.prepaidType = 'KLARNA';
+      data.salesUrl = `${pageUrl}/checkout`;
+      data.redirectsTo = `${pageUrl}/checkout`;
+    } else {
+      data.paySource = 'CREDITCARD';
     }
 
     if(req.body.params.affId) data.affId = req.body.params.affId;

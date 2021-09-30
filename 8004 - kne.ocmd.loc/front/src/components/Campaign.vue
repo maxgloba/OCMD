@@ -94,6 +94,32 @@
                 <li @click="tabs" data-tab="tab2">Subscribe and Save</li>
               </ul>
               <div class="products-tabs__tab tab1 active">
+                <div class="row" v-if="status === 'development'">
+                  <div class="col-12 col-lg-4">
+                    <!-- START Product 7 -->
+                    <div class="product">
+                      <div class="product-quantity">1<br>Test</div>
+                      <div class="product-inner">
+                        <div class="product-price">${{ data[6].ea }}<span>/ea</span></div>
+                        <div class="product-save">You Save ${{ data[6].save }}</div>
+                      </div>
+                      <footer>
+                        <button
+                          class="buy-now button"
+                          @click="goToCheckout"
+                          :data-id="data[6].id"
+                          :data-price="data[6].price"
+                          :data-shipping="data[6].shipping"
+                          :data-name="data[6].name"
+                          :data-sku="data[6].sku"
+                          :data-product_type="data[6].product_type"
+                        >Add To Cart</button>
+                        <span>+ SHIPPING ${{ data[6].shipping }}</span>
+                      </footer>
+                    </div>
+                    <!-- END Product 7 -->
+                  </div>
+                </div>
                 <div class="row">
                   <div class="col-12 col-lg-4">
                     <!-- START Product 0 -->
@@ -570,6 +596,11 @@
 <script>
 export default {
   name: 'Campaign',
+  data(){
+    return {
+      status: false
+    }
+  },
   props: {
     data: Array,
     camp: Number,
@@ -633,6 +664,7 @@ export default {
     this.$store.state.campaignId = this.camp;
     localStorage.campaignId = this.$store.state.campaignId;
     localStorage.httpReferer = window.location.href;
+    this.status = process.env.NODE_ENV;
   }
 }
 </script>

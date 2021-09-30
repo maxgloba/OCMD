@@ -68,6 +68,16 @@ export default {
           name: 'Rejuvenation Complex Cream 6 Jars subscribe',
           sku: 'SUBC6OFF40',
           product_type: 'subscribe'
+        },
+        {
+          id: 218,
+          price: 1.00,
+          shipping: 0,
+          ea: 1,
+          save: 0,
+          name: 'Test product',
+          sku: '0000000000',
+          product_type: 'onetime'
         }
       ]
     }
